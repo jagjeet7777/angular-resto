@@ -19,6 +19,10 @@ import { AddRestoComponent } from './component/add-resto/add-resto.component'
 import { UpdateRestoComponent } from './component/update-resto/update-resto.component';
 import { ListRestoComponent } from './component/list-resto/list-resto.component';
 import {HttpClientModule} from '@angular/common/http'
+import {ReactiveFormsModule} from '@angular/forms'
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +47,8 @@ import {HttpClientModule} from '@angular/common/http'
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

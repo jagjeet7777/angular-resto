@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IRes, RestoService } from 'src/app/resto.service';
+import { RestoService } from 'src/app/resto.service';
 
 
 @Component({
@@ -9,17 +9,20 @@ import { IRes, RestoService } from 'src/app/resto.service';
 })
 export class ListRestoComponent implements OnInit {
 
-  constructor(private resto:RestoService) { }
-  collection:IRes[]=[]
-  ngOnInit(): void { 
-    
-    this.resto.getList().subscribe((result:IRes[])=>{
-      console.warn(result);
-      this.collection=result;
+  constructor(private resto: RestoService) { }
+  collection:any=[];
+  ngOnInit(): void {
+    this.resto.getList().subscribe((result: any) => {
+      this.collection = result;
     })
-        
-        
-    }
   }
+  deleteResto(item: any) {
+    this.resto.deleteResto(item - 1).subscribe((result: any) => {
+      console.warn(result);
+      this.collection.splice(item-1,1)
+    })
+
+  }
+}
 
 
