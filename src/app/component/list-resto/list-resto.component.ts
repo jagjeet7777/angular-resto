@@ -11,6 +11,7 @@ export class ListRestoComponent implements OnInit {
 
   constructor(private resto: RestoService) { }
   collection:any=[];
+  alert:boolean=false
   ngOnInit(): void {
     this.resto.getList().subscribe((result: any) => {
       this.collection = result;
@@ -20,8 +21,13 @@ export class ListRestoComponent implements OnInit {
    // console.warn(item);
    this.resto.deleteResto(item).subscribe((result)=>{
       console.warn(result);
+      this.alert=true 
       this.collection.splice(item-1,1)
    })
+   this.collection.reset({})
+  }
+  closeAlert(){
+    this.alert=false
   }
 }
 

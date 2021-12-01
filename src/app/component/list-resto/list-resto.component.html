@@ -1,9 +1,16 @@
 
+
 <div class="container">
   <h1 class="heading">Restaurant Listing</h1>
-<table class="table">
-  <thead>
-    <tr>
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success</strong> You Data has been Enter Successfuly... 
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<table class="table table-dark">
+  <thead >
+    <tr >
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
@@ -14,13 +21,13 @@
   <tbody>
     <tr *ngFor="let item of collection">
       <th scope="row">{{item.id}}</th>
-      <th>{{item.name}}</th>
-      <th>{{item.email}}</th>
-      <th>@{{item.address}}</th>
-      <th>
-        <i (click)="deleteResto(item.id)" class="fa fa-trash redButton" style="font-size:20px;color:red;"></i>
-        <a routerLink="/update/{{item.id}}"> <i class="fa fa-edit" style="font-size:20px;color:blue;"></i></a>
-      </th>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>@{{item.address}}</td>
+      <td>
+        <i (click)="deleteResto(item.id)" class="fa fa-trash redButton" style="font-size:20px;color:#fff;"></i>
+        <a routerLink="/update/{{item.id}}"> <i class="fa fa-edit" style="font-size:20px;color:#fff;"></i></a>
+      </td>
       
     </tr>
 

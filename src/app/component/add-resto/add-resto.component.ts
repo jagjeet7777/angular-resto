@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validator } from '@angular/forms';
 import { RestoService } from 'src/app/resto.service';
 
 @Component({
