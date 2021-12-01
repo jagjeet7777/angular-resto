@@ -9,7 +9,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
 import { LoginComponent } from './component/login/login.component';
-import { SignupComponent } from './component/signup/signup.component';
+
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -20,6 +20,8 @@ import { UpdateRestoComponent } from './component/update-resto/update-resto.comp
 import { ListRestoComponent } from './component/list-resto/list-resto.component';
 import {HttpClientModule} from '@angular/common/http'
 import {ReactiveFormsModule} from '@angular/forms'
+import { RegisterComponent } from './component/register/register.component';
+
 
 
 
@@ -30,7 +32,7 @@ import {ReactiveFormsModule} from '@angular/forms'
     HomeComponent,
     AboutComponent,
     LoginComponent,
-    SignupComponent,
+    RegisterComponent,
     HeaderComponent,
     FooterComponent,
     AddRestoComponent,

@@ -17,11 +17,11 @@ export class ListRestoComponent implements OnInit {
     })
   }
   deleteResto(item: any) {
-    this.resto.deleteResto(item - 1).subscribe((result: any) => {
+   // console.warn(item);
+   this.resto.deleteResto(item).subscribe((result)=>{
       console.warn(result);
       this.collection.splice(item-1,1)
-    })
-
+   })
   }
 }
 
