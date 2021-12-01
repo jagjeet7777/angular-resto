@@ -36,6 +36,7 @@ export class UpdateRestoComponent implements OnInit {
       this.alert=true
       
     })
+    this.editResto.reset({})
     }
     closeAlert(){
       this.alert=false
