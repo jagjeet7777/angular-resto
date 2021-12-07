@@ -1,49 +1,29 @@
-<!----<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>Success</strong> You Data has been Enter Successfuly... 
-  <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
--->
-
-
 <div class="container">
- 
-  <div class="myCard">
-      <div class="row">
-          <div class="col-md-6">
-              <div class="myLeftCtn"> 
-                  <form class="myForm text-center" >
-
-                      <header>Login User</header>
-
-                      <div class="form-group">
-                          <i class="fas fa-envelope"></i>
-                          <input type="text" class="myInput" formControlName="email" placeholder="Email" required>
-                      </div>
-
-                      <div class="form-group">
-                          <i class="fas fa-lock"></i>
-                          <input type="password" class="myInput" formControlName="password" placeholder="Password" required>
-                      </div>
-
-                      <input type="submit" class="butt" value="Create Account">
-                  </form>
-              </div>
-          </div>
-
-          <div class="col-md-6">
-              <div class="myRightCtn">
-                  <div class="box"><header>Hello World!</header>
-                      <p>Lorem Ipsum is simply dummy text of the 
-                          printing and typesetting industry. Lorem Ipsum 
-                          has been the industry's standard dummy text ever since the 1500s</p>
-                          <input type="button" class="butt_out" value="Learn More"/>
-                  </div>
-
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Login</h1>
+                    <h6>Please enter email & password !!</h6>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" formControlName="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small><br>
+                      <span class="text-danger" *ngIf="loginForm.controls['email'].dirty
+                      && loginForm.hasError('required','email')">*Email Id is requires</span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" formControlName="password" pattern='^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$' class="form-control" id="exampleInputPassword1"><br>
+                      <span class="text-danger" *ngIf="loginForm.controls['password'].dirty
+                      && loginForm.hasError('required','password')">*Password Id is requires</span>
+                    </div>
+                    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+                  </form> 
+                  <a style="color: #fff; margin-top: 10px;" routerLink="/signup">New user? Click to signup!!</a>
+            </div>
+        </div>
+    </div>
 </div>

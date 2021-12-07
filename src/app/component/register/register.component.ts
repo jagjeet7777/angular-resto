@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { RestoService } from 'src/app/resto.service';
+import {FormGroup,FormBuilder,Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -10,27 +12,29 @@ import { RestoService } from 'src/app/resto.service';
 })
 export class RegisterComponent implements OnInit {
 
-  register = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    address: new FormControl(''),
-  })
+    public signupForm!:FormGroup;
+    constructor(private formBuilder:FormBuilder,private http:HttpClient,private router:Router) { }
 
-  constructor(private resto: RestoService) { }
-  alert:boolean=false
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+      this.signupForm = this.formBuilder.group({
+        firstname:['',Validators.required],
+        lastname:['',Validators.required],
+        mobile:['',Validators.required],
+         email:['',Validators.required],
+         password:['',Validators.required],
+         passConfirm:['',Validators.required]
+         
+      })
+    }
 
+    signUp(){
+      this.http.post<any>("http://localhost:3000/signupUsers",this.signupForm.value)
+      .subscribe(result=>{
+        alert("signup Successfull")
+        this.signupForm.reset();
+        this.router.navigate(['login'])
+      })
+    }
 
-  registUser() {
-    console.warn(this.register.value);
-    this.resto.registerUser(this.register.value).subscribe((result: any) => {
-      console.warn(result);
-      this.alert=true
-    })
-    this.register.reset({})
-  }
-  closeAlert(){
-    this.alert=false
-  }
+    
 }

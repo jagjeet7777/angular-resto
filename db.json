@@ -1,0 +1,27 @@
+{
+  "restaurants": [
+    {
+      "name": "jagjeet",
+      "email": "jagjeet@gmail.com",
+      "address": "pilibanga",
+      "id": 2
+    },
+    {
+      "name": "kgf",
+      "email": "kgf@gmail.com",
+      "address": "4xgxf",
+      "id": 3
+    }
+  ],
+  "signupUsers": [
+    {
+      "firstname": "anil",
+      "lastname": "kumar",
+      "mobile": 1234565789,
+      "email": "aniltest@gmail.com",
+      "password": "123@asdF",
+      "passConfirm": "123@asdF",
+      "id": 1
+    }
+  ]
+}
